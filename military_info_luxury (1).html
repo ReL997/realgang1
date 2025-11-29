@@ -1,0 +1,1119 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RT Police Rules</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        @keyframes floatingParticles {
+            0% {
+                transform: translateY(0px) translateX(0px) rotate(0deg);
+                opacity: 0.5;
+            }
+            50% {
+                opacity: 0.8;
+            }
+            100% {
+                transform: translateY(-100vh) translateX(100px) rotate(360deg);
+                opacity: 0;
+            }
+        }
+
+        @keyframes shimmer {
+            0% {
+                background-position: -1000px 0;
+            }
+            100% {
+                background-position: 1000px 0;
+            }
+        }
+
+        @keyframes glow {
+            0%, 100% {
+                box-shadow: 0 0 20px rgba(255, 255, 255, 0.3), 0 0 40px rgba(255, 255, 255, 0.1);
+            }
+            50% {
+                box-shadow: 0 0 30px rgba(255, 255, 255, 0.6), 0 0 60px rgba(255, 255, 255, 0.3);
+            }
+        }
+
+        @keyframes slideInDown {
+            from {
+                opacity: 0;
+                transform: translateY(-30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        body {
+            font-family: 'Roboto', sans-serif;
+            background: #0A0E27; /* Fallback color */
+            color: #e0e0e0;
+            line-height: 1.8;
+            position: relative;
+            overflow-x: hidden;
+        }
+
+        /* Animated Background */
+        .animated-bg {
+            background-image: url('../military_luxury_background_purple_orange.png');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: #0A0E27; /* Fallback color */
+            z-index: -2;
+        }
+
+        .particle {
+            position: fixed;
+            width: 4px;
+            height: 4px;
+            background: radial-gradient(circle, #FFFFFF, #0056b3);
+            border-radius: 50%;
+            z-index: -1;
+            animation: floatingParticles linear infinite;
+        }
+
+        h1, h2, h3, h4, h5, h6 {
+            font-family: 'Playfair Display', serif;
+            font-weight: 900;
+            color: #FFFFFF;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+        }
+
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            position: relative;
+            z-index: 1;
+        }
+
+        /* Header */
+        header {
+            background: linear-gradient(135deg, rgba(10, 14, 39, 0.95) 0%, rgba(26, 42, 74, 0.95) 100%);
+            backdrop-filter: blur(10px);
+            color: white;
+            padding: 3rem 2rem;
+            border-bottom: 3px solid #FFFFFF;
+            box-shadow: 0 8px 32px rgba(0,0,0,0.3), inset 0 1px 0 rgba(255,255,255,0.1);
+            animation: slideInDown 0.8s ease-out;
+            position: relative;
+            overflow: hidden;
+        }
+
+        header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.1), transparent);
+            animation: shimmer 3s infinite;
+        }
+
+        header .container {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 2rem;
+            position: relative;
+            z-index: 2;
+        }
+
+        .header-content {
+            display: flex;
+            align-items: center;
+            gap: 2rem;
+        }
+
+        .header-icon {
+            background: linear-gradient(135deg, #FFFFFF 0%, #007BFF 100%);
+            color: #1A2A4A;
+            width: 80px;
+            height: 80px;
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 3rem;
+            box-shadow: 0 8px 20px rgba(255, 255, 255, 0.4);
+            animation: glow 3s ease-in-out infinite;
+        }
+
+        .header-text h1 {
+            color: #FFFFFF;
+            font-size: 3rem;
+            margin-bottom: 0.5rem;
+            letter-spacing: 2px;
+        }
+
+        .header-text p {
+            color: #b0b0b0;
+            font-size: 1rem;
+            font-weight: 300;
+            letter-spacing: 1px;
+        }
+
+        .header-subtitle {
+            text-align: right;
+        }
+
+        .header-subtitle p {
+            color: #FFFFFF;
+            font-size: 0.95rem;
+            font-weight: 500;
+            letter-spacing: 1px;
+        }
+
+        /* Table of Contents */
+        .toc {
+            background: linear-gradient(135deg, rgba(10, 14, 39, 0.8) 0%, rgba(26, 42, 74, 0.8) 100%);
+            backdrop-filter: blur(10px);
+            border: 2px solid #FFFFFF;
+            border-radius: 12px;
+            padding: 2.5rem;
+            margin: 3rem 0;
+            box-shadow: 0 8px 32px rgba(255, 255, 255, 0.2);
+            animation: fadeInUp 0.8s ease-out 0.2s both;
+        }
+
+        .toc h2 {
+            margin-bottom: 2rem;
+            font-size: 2rem;
+            text-align: center;
+        }
+
+        .toc ul {
+            list-style: none;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .toc li {
+            padding: 1.5rem;
+            background: linear-gradient(135deg, rgba(255, 255, 255, 0.1) 0%, rgba(255, 255, 255, 0.05) 100%);
+            border-right: 4px solid #FFFFFF;
+            border-radius: 8px;
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+
+        .toc li:hover {
+            background: linear-gradient(135deg, rgba(255, 255, 255, 0.2) 0%, rgba(255, 255, 255, 0.1) 100%);
+            transform: translateX(-10px);
+            box-shadow: 0 4px 12px rgba(255, 255, 255, 0.3);
+        }
+
+        .toc a {
+            color: #FFFFFF;
+            text-decoration: none;
+            font-weight: 600;
+            transition: color 0.3s;
+            font-size: 1.1rem;
+        }
+
+        .toc a:hover {
+            color: #3498DB;
+        }
+
+        /* Sections */
+        section {
+            margin: 4rem 0;
+            padding: 3rem;
+            background: linear-gradient(135deg, rgba(10, 14, 39, 0.6) 0%, rgba(26, 42, 74, 0.4) 100%);
+            backdrop-filter: blur(10px);
+            border-radius: 12px;
+            border-left: 5px solid #FFFFFF;
+            box-shadow: 0 8px 32px rgba(0,0,0,0.3), inset 0 1px 0 rgba(255,255,255,0.05);
+            animation: fadeInUp 0.8s ease-out;
+        }
+
+        section h2 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            color: #FFFFFF;
+            border-bottom: 3px solid #FFFFFF;
+            padding-bottom: 1.5rem;
+            letter-spacing: 1px;
+        }
+
+        section > p {
+            font-size: 1.15rem;
+            color: #c0c0c0;
+            margin-bottom: 2.5rem;
+            font-weight: 300;
+        }
+
+        /* Protocol Cards */
+        .protocol-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .protocol-card {
+            background: linear-gradient(135deg, rgba(255, 255, 255, 0.1) 0%, rgba(255, 255, 255, 0.05) 100%);
+            border: 2px solid #FFFFFF;
+            border-radius: 12px;
+            padding: 2rem;
+            box-shadow: 0 8px 24px rgba(0,0,0,0.3), inset 0 1px 0 rgba(255,255,255,0.05);
+            transition: all 0.4s cubic-bezier(0.23, 1, 0.320, 1);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .protocol-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.1), transparent);
+            transition: left 0.5s;
+        }
+
+        .protocol-card:hover {
+            box-shadow: 0 12px 40px rgba(255, 255, 255, 0.4), inset 0 1px 0 rgba(255,255,255,0.1);
+            border-color: #3498DB;
+            transform: translateY(-8px);
+        }
+
+        .protocol-card:hover::before {
+            left: 100%;
+        }
+
+        .protocol-code {
+            background: linear-gradient(135deg, #FFFFFF 0%, #007BFF 100%);
+            color: #1A2A4A;
+            padding: 0.7rem 1.2rem;
+            border-radius: 6px;
+            font-weight: bold;
+            font-size: 0.95rem;
+            display: inline-block;
+            margin-bottom: 1rem;
+            box-shadow: 0 4px 12px rgba(255, 255, 255, 0.3);
+            letter-spacing: 1px;
+        }
+
+        .protocol-card h4 {
+            font-size: 1.3rem;
+            margin: 1rem 0 0.5rem 0;
+            color: #FFFFFF;
+        }
+
+        .protocol-card p {
+            font-size: 0.95rem;
+            color: #b0b0b0;
+            margin: 0.7rem 0;
+        }
+
+        /* Vehicle Section */
+        .vehicle-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 2rem;
+            background: linear-gradient(135deg, rgba(26, 42, 74, 0.5) 0%, rgba(45, 74, 122, 0.3) 100%);
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 8px 24px rgba(0,0,0,0.3);
+        }
+
+        .vehicle-table th {
+            background: linear-gradient(135deg, #FFFFFF 0%, #007BFF 100%);
+            color: #1A2A4A;
+            padding: 1.2rem;
+            text-align: right;
+            font-weight: 700;
+            letter-spacing: 1px;
+        }
+
+        .vehicle-table td {
+            padding: 1.2rem;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+            color: #c0c0c0;
+        }
+
+        .vehicle-table tr:nth-child(even) {
+            background: rgba(255, 255, 255, 0.05);
+        }
+
+        .vehicle-table tr:hover {
+            background: rgba(255, 255, 255, 0.15);
+        }
+
+        .rank-badge {
+            background: linear-gradient(135deg, #FFFFFF 0%, #007BFF 100%);
+            color: #1A2A4A;
+            padding: 0.6rem 1.2rem;
+            border-radius: 6px;
+            font-weight: bold;
+            display: inline-block;
+            box-shadow: 0 4px 12px rgba(255, 255, 255, 0.3);
+            letter-spacing: 1px;
+        }
+
+        /* Rank Cards */
+        .rank-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .rank-card {
+            background: linear-gradient(135deg, rgba(255, 255, 255, 0.15) 0%, rgba(255, 255, 255, 0.05) 100%);
+            border: 2px solid #FFFFFF;
+            color: #e0e0e0;
+            padding: 2rem;
+            border-radius: 12px;
+            box-shadow: 0 8px 24px rgba(255, 255, 255, 0.2);
+            transition: all 0.4s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .rank-card::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -50%;
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(circle, rgba(255, 255, 255, 0.1) 0%, transparent 70%);
+            transition: all 0.4s ease;
+        }
+
+        .rank-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 12px 40px rgba(255, 255, 255, 0.4);
+            border-color: #3498DB;
+        }
+
+        .rank-card:hover::before {
+            top: -20%;
+            right: -20%;
+        }
+
+        .rank-card h4 {
+            color: #FFFFFF;
+            font-size: 1.5rem;
+            margin-bottom: 0.5rem;
+            letter-spacing: 1px;
+        }
+
+        .rank-card p {
+            font-size: 0.9rem;
+            color: #a0a0a0;
+            margin-bottom: 1.5rem;
+        }
+
+        .rank-card ul {
+            list-style: none;
+            font-size: 0.9rem;
+        }
+
+        .rank-card li {
+            padding: 0.5rem 0;
+            color: #b0b0b0;
+        }
+
+        .rank-card li:before {
+            content: "⭐ ";
+            color: #FFFFFF;
+            font-weight: bold;
+            margin-left: 0.5rem;
+        }
+
+        /* Law Cards */
+        .law-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 1.5rem;
+            margin-top: 2rem;
+        }
+
+        .law-card {
+            border-left: 5px solid #FFFFFF;
+            padding: 2rem;
+            background: linear-gradient(135deg, rgba(255, 255, 255, 0.1) 0%, rgba(255, 255, 255, 0.05) 100%);
+            border-radius: 8px;
+            box-shadow: 0 4px 16px rgba(0,0,0,0.3);
+            transition: all 0.3s ease;
+            position: relative;
+        }
+
+        .law-card:hover {
+            transform: translateX(-5px);
+            box-shadow: 0 8px 24px rgba(255, 255, 255, 0.3);
+        }
+
+        .law-card.critical {
+            border-left-color: #ff6b6b;
+            background: linear-gradient(135deg, rgba(255, 107, 107, 0.1) 0%, rgba(255, 107, 107, 0.05) 100%);
+        }
+
+        .law-card.important {
+            border-left-color: #ffa94d;
+            background: linear-gradient(135deg, rgba(255, 164, 77, 0.1) 0%, rgba(255, 164, 77, 0.05) 100%);
+        }
+
+        .law-card h4 {
+            font-size: 1.2rem;
+            margin-bottom: 0.7rem;
+            color: #FFFFFF;
+        }
+
+        .law-category {
+            display: inline-block;
+            background: linear-gradient(135deg, #FFFFFF 0%, #007BFF 100%);
+            color: #1A2A4A;
+            padding: 0.4rem 1rem;
+            border-radius: 6px;
+            font-size: 0.8rem;
+            margin-bottom: 0.7rem;
+            font-weight: 600;
+            letter-spacing: 0.5px;
+            box-shadow: 0 2px 8px rgba(255, 255, 255, 0.3);
+        }
+
+        .law-card.critical .law-category {
+            background: linear-gradient(135deg, #ff6b6b 0%, #ff5252 100%);
+            color: white;
+        }
+
+        .law-card.important .law-category {
+            background: linear-gradient(135deg, #ffa94d 0%, #ff922b 100%);
+            color: white;
+        }
+
+        .law-card p {
+            margin: 0.7rem 0;
+            color: #b0b0b0;
+        }
+
+        .law-card ul {
+            list-style: none;
+            margin-top: 1rem;
+            padding-right: 1rem;
+        }
+
+        .law-card li {
+            padding: 0.4rem 0;
+            color: #a0a0a0;
+        }
+
+        .law-card li:before {
+            content: "✓ ";
+            color: #FFFFFF;
+            font-weight: bold;
+            margin-left: 0.5rem;
+        }
+
+        /* Footer */
+        footer {
+            background: linear-gradient(135deg, rgba(10, 14, 39, 0.95) 0%, rgba(26, 42, 74, 0.95) 100%);
+            backdrop-filter: blur(10px);
+            color: #c0c0c0;
+            text-align: center;
+            padding: 3rem 2rem;
+            margin-top: 4rem;
+            border-top: 3px solid #FFFFFF;
+            box-shadow: 0 -8px 32px rgba(0,0,0,0.3), inset 0 1px 0 rgba(255,255,255,0.05);
+        }
+
+        footer p {
+            margin: 0.7rem 0;
+            font-size: 0.95rem;
+            letter-spacing: 0.5px;
+        }
+
+        footer p:first-child {
+            color: #FFFFFF;
+            font-weight: 700;
+            font-size: 1.1rem;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .container {
+                padding: 0 1rem;
+            }
+            header .container {
+                flex-direction: column;
+                text-align: center;
+            }
+            .header-content {
+                flex-direction: column;
+            }
+            .header-text h1 {
+                font-size: 2rem;
+            }
+            section {
+                padding: 1.5rem;
+            }
+            section h2 {
+                font-size: 1.8rem;
+            }
+            .protocol-grid {
+                grid-template-columns: 1fr;
+            }
+            .rank-grid {
+                grid-template-columns: 1fr;
+            }
+            .vehicle-table {
+                font-size: 0.9rem;
+            }
+            .vehicle-table th, .vehicle-table td {
+                padding: 0.8rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Animated Background -->
+    <div class="animated-bg"></div>
+    
+    <!-- Floating Particles -->
+    <script>
+        function createParticles() {
+            const particleCount = 50;
+            for (let i = 0; i < particleCount; i++) {
+                const particle = document.createElement('div');
+                particle.className = 'particle';
+                particle.style.left = Math.random() * 100 + '%';
+                particle.style.top = Math.random() * 100 + '%';
+                particle.style.animationDuration = (Math.random() * 20 + 10) + 's';
+                particle.style.animationDelay = Math.random() * 5 + 's';
+                document.body.appendChild(particle);
+            }
+        }
+        createParticles();
+    </script>
+
+    <!-- Header -->
+    <header>
+        <div class="container">
+            <div class="header-content">
+                <div class="header-icon">🛡️</div>
+                <div class="header-text">
+                    <h1>القيادة العسكرية</h1>
+                    <p>نظام المعلومات الموحد</p>
+                </div>
+            </div>
+            <div class="header-subtitle">
+                <p>الإدارة العامة للعمليات</p>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <div class="container">
+        <!-- Table of Contents -->
+        <div class="toc">
+            <h2>📑 محتويات الوثيقة</h2>
+            <ul>
+                <li><a href="#military_section">🎖️ قسم العسكر</a></li>
+                <li><a href="#protocols">📋 البروتكالات والأكواد العسكرية</a></li>
+                <li><a href="#vehicles">🚗 المركبات المصرحة لكل رتبة</a></li>
+                <li><a href="#ranks">⭐ الرتب العسكرية والصلاحيات</a></li>
+                <li><a href="#laws">⚖️ القوانين والأنظمة العسكرية</a></li>
+            </ul>
+        </div>
+
+	        <!-- Section 0: Military Section -->
+	        <section id="military_section">
+	            <h2>🎖️ قسم العسكر</h2>
+	            <p>هذا القسم مخصص للمعلومات والإجراءات الخاصة بالأفراد العسكريين.</p>
+	
+	            <div class="protocol-grid">
+	                <div class="protocol-card">
+	                    <span class="protocol-code" style="background: linear-gradient(135deg, #007BFF 0%, #0056b3 100%); color: white;">إجراءات</span>
+	                    <h4>إجراءات الترقية</h4>
+	                    <p>الخطوات المطلوبة لتقديم طلب الترقية والمستندات اللازمة.</p>
+	                    <p><strong>المتطلبات:</strong> تقييم أداء ممتاز، اجتياز الاختبارات، سنوات خدمة كافية.</p>
+	                </div>
+	                <div class="protocol-card">
+	                    <span class="protocol-code" style="background: linear-gradient(135deg, #007BFF 0%, #0056b3 100%); color: white;">إجراءات</span>
+	                    <h4>إجراءات الإجازات</h4>
+	                    <p>قواعد وأنظمة طلب الإجازات السنوية والمرضية.</p>
+	                    <p><strong>المتطلبات:</strong> تقديم الطلب قبل أسبوع، موافقة القائد المباشر.</p>
+	                </div>
+	                <div class="protocol-card">
+	                    <span class="protocol-code" style="background: linear-gradient(135deg, #FFFFFF 0%, #0056b3 100%); color: #333;">إجراءات</span>
+	                    <h4>إجراءات التدريب</h4>
+	                    <p>جدول الدورات التدريبية الإلزامية والمتقدمة.</p>
+	                    <p><strong>المتطلبات:</strong> الالتزام بالحضور، اجتياز التقييم النهائي.</p>
+	                </div>
+	            </div>
+	        </section>
+	
+	        <!-- Section 1: Protocols -->
+        <section id="protocols">
+            <h2>📋 البروتكالات و الأكواد العسكرية</h2>
+            <p>جميع الأكواد والبروتكالات المستخدمة في العمليات العسكرية </p>
+
+            <h3 style="color: #FFFFFF; margin-top: 2.5rem; margin-bottom: 1.5rem; font-size: 1.6rem; letter-spacing: 1px;">أكواد 10</h3>
+            <div class="protocol-grid">
+                <div class="protocol-card">
+                    <span class="protocol-code">10-1</span>
+                    <h4>مطاردة مركبة</h4>
+                    <p><strong>الإنجليزية:</strong> Vehicle Pursuit</p>
+                    <p><strong>الترجمة:</strong> تن ون</p>
+                </div>
+                <div class="protocol-card">
+                    <span class="protocol-code">10-2</span>
+                    <h4>غير صحيح</h4>
+                    <p><strong>الإنجليزية:</strong> Incorrect</p>
+                    <p><strong>الترجمة:</strong> تن تو</p>
+                </div>
+                <div class="protocol-card">
+                    <span class="protocol-code">10-3</span>
+                    <h4>الاستيقافات بجميع أنواعها</h4>
+                    <p><strong>الإنجليزية:</strong> All Types of Stops</p>
+                    <p><strong>الترجمة:</strong> تن ثري</p>
+                </div>
+                <div class="protocol-card">
+                    <span class="protocol-code">10-4</span>
+                    <h4>صحيح</h4>
+                    <p><strong>الإنجليزية:</strong> Correct</p>
+                    <p><strong>الترجمة:</strong> تن فور</p>
+                </div>
+                <div class="protocol-card">
+                    <span class="protocol-code">10-19</span>
+                    <h4>هروب على الأقدام</h4>
+                    <p><strong>الإنجليزية:</strong> Foot Pursuit</p>
+                    <p><strong>الترجمة:</strong> تن ناينتين</p>
+                </div>
+                <div class="protocol-card">
+                    <span class="protocol-code">10-23</span>
+                    <h4>احتاج دعم</h4>
+                    <p><strong>الإنجليزية:</strong> Need Backup</p>
+                    <p><strong>الترجمة:</strong> تن توني ثري</p>
+                </div>
+                <div class="protocol-card">
+                    <span class="protocol-code">10-20</span>
+                    <h4>موقعك</h4>
+                    <p><strong>الإنجليزية:</strong> Your Location</p>
+                    <p><strong>الترجمة:</strong> تن توني</p>
+                </div>
+                <div class="protocol-card">
+                    <span class="protocol-code">10-24</span>
+                    <h4>عملية خطف</h4>
+                    <p><strong>الإنجليزية:</strong> Kidnapping</p>
+                    <p><strong>الترجمة:</strong> تن توني فور</p>
+                </div>
+                <div class="protocol-card">
+                    <span class="protocol-code">10-30</span>
+                    <h4>استيقاف جنائي</h4>
+                    <p><strong>الإنجليزية:</strong> Felony Stop</p>
+                    <p><strong>الترجمة:</strong> تن ثيرتي</p>
+                </div>
+            </div>
+
+            <h3 style="color: #FFFFFF; margin-top: 2.5rem; margin-bottom: 1.5rem; font-size: 1.6rem; letter-spacing: 1px;">أكواد 0</h3>
+            <div class="protocol-grid">
+                <div class="protocol-card">
+                    <span class="protocol-code">0-1</span>
+                    <h4>استراحة</h4>
+                    <p><strong>الإنجليزية:</strong> Break</p>
+                    <p><strong>الترجمة:</strong> زيرو ون</p>
+                </div>
+                <div class="protocol-card">
+                    <span class="protocol-code">0-2</span>
+                    <h4>الإشارة واضحة</h4>
+                    <p><strong>الإنجليزية:</strong> Clear Signal</p>
+                    <p><strong>الترجمة:</strong> زيرو تو</p>
+                </div>
+                <div class="protocol-card">
+                    <span class="protocol-code">0-3</span>
+                    <h4>التأكد من الإشارة</h4>
+                    <p><strong>الإنجليزية:</strong> Confirm Signal</p>
+                    <p><strong>الترجمة:</strong> زيرو ثري</p>
+                </div>
+                <div class="protocol-card">
+                    <span class="protocol-code">0-4</span>
+                    <h4>إلغاء البلاغ</h4>
+                    <p><strong>الإنجليزية:</strong> Cancel Call</p>
+                    <p><strong>الترجمة:</strong> زيرو فور</p>
+                </div>
+                <div class="protocol-card">
+                    <span class="protocol-code">0-5</span>
+                    <h4>الشرطي مشغول</h4>
+                    <p><strong>الإنجليزية:</strong> Officer Busy</p>
+                    <p><strong>الترجمة:</strong> زيرو فايف</p>
+                </div>
+                <div class="protocol-card">
+                    <span class="protocol-code">0-6</span>
+                    <h4>كرر البلاغ</h4>
+                    <p><strong>الإنجليزية:</strong> Repeat Call</p>
+                    <p><strong>الترجمة:</strong> زيرو سكس</p>
+                </div>
+                <div class="protocol-card">
+                    <span class="protocol-code">0-7</span>
+                    <h4>تسجيل خروج</h4>
+                    <p><strong>الإنجليزية:</strong> Log Out</p>
+                    <p><strong>الترجمة:</strong> زيرو سفن</p>
+                </div>
+                <div class="protocol-card">
+                    <span class="protocol-code">0-8</span>
+                    <h4>تسجيل دخول</h4>
+                    <p><strong>الإنجليزية:</strong> Log In</p>
+                    <p><strong>الترجمة:</strong> زيرو ايت</p>
+                </div>
+            </div>
+
+            <h3 style="color: #FFFFFF; margin-top: 2.5rem; margin-bottom: 1.5rem; font-size: 1.6rem; letter-spacing: 1px;">الأكواد الإنجليزية</h3>
+            <div class="protocol-grid">
+                <div class="protocol-card">
+                    <span class="protocol-code">Shootfired</span>
+                    <h4>تبادل إطلاق نار</h4>
+                    <p><strong>الترجمة:</strong> شوت فايرد</p>
+                </div>
+                <div class="protocol-card">
+                    <span class="protocol-code">Officer Down</span>
+                    <h4>شرطي مسقط</h4>
+                    <p><strong>الترجمة:</strong> اوفيسر داون</p>
+                </div>
+                <div class="protocol-card">
+                    <span class="protocol-code">Requesting Transfer</span>
+                    <h4>أرسل وحدة نقل</h4>
+                    <p><strong>الترجمة:</strong> ريكويستنق ترنسفير</p>
+                </div>
+                <div class="protocol-card">
+                    <span class="protocol-code">Responding to</span>
+                    <h4>متوجه إلى</h4>
+                    <p><strong>الترجمة:</strong> ريسبوندنق تو</p>
+                </div>
+                <div class="protocol-card">
+                    <span class="protocol-code">Requesting Backup</span>
+                    <h4>أرسل دعم</h4>
+                    <p><strong>الترجمة:</strong> ريكويستنق بكب</p>
+                </div>
+                <div class="protocol-card">
+                    <span class="protocol-code">Hold</span>
+                    <h4>في حالة الفوضى</h4>
+                    <p><strong>الترجمة:</strong> هولد</p>
+                </div>
+                <div class="protocol-card">
+                    <span class="protocol-code">Badge Number</span>
+                    <h4>رقمك العسكري</h4>
+                    <p><strong>الترجمة:</strong> بادج نمبر</p>
+                </div>
+                <div class="protocol-card">
+                    <span class="protocol-code">Roll call</span>
+                    <h4>تجمع الأفراد</h4>
+                    <p><strong>الترجمة:</strong> رول كول</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section 2: Vehicles -->
+        <section id="vehicles">
+            <h2>🚗 المركبات المصرحة لكل رتبة</h2>
+            <p>قائمة شاملة بالمركبات المصرحة لكل رتبة عسكرية مع صلاحيات الاستخراج</p>
+
+            <table class="vehicle-table">
+                <thead>
+                    <tr>
+                        <th>الرتبة</th>
+                        <th>المركبات المصرحة</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><span class="rank-badge">Cadet</span></td>
+                        <td>Ford Victoria  </td>
+                    </tr>
+                    <tr>
+                        <td><span class="rank-badge">Solo Cadet</span></td>
+                        <td>Ford Victoria</td>
+                    </tr>
+                    <tr>
+                        <td><span class="rank-badge"> Officer I</span></td>
+                        <td> Ford Victoria / Explore </td>
+                    </tr>
+                    </tr>
+                    <tr>
+                        <td><span class="rank-badge"> Officer II</span></td>
+                        <td> Ford Victoria / Explore </td>
+                     </tr>
+                    </tr>
+                    <tr>
+                        <td><span class="rank-badge"> Officer III</span></td>
+                        <td> Ford Victoria / Explore </td>
+                     </tr>
+                    <tr>
+                        <td><span class="rank-badge">Senior Officer</span></td>
+                        <td>Ford Victoria / Explore / Drango  </td>
+                    </tr>
+                    <tr>
+                        <td><span class="rank-badge">Sergeant</span></td>
+                        <td>Ford Victoria / Explore / Drango/ charger  </td>
+                    </tr>
+                    <tr>
+                        <td><span class="rank-badge">First Sergeant</span></td>
+                        <td>Ford Victoria / Explore / Drango/ charger </td>
+                    </tr>
+                  <tr>
+                        <td><span class="rank-badge">Staff Sergeant</span></td>
+                        <td> Ford Victoria / Explore / Drango/ charger   </td>
+                    </tr>
+                   <tr>
+                        <td><span class="rank-badge"> Lieutenant</span></td>
+                        <td>  Ford Victoria / Explore / Drango/ charger   </td>
+                    </tr>
+                   <tr>
+                        <td><span class="rank-badge"> First Lieutenant</span></td>
+                        <td>  Ford Victoria / Explore / Drango/ charger </td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <h3 style="color: #FFFFFF; margin-top: 2.5rem; margin-bottom: 1.5rem; font-size: 1.6rem; letter-spacing: 1px;">✓ صلاحيات استخراج المركبة</h3>
+            <div style="background: linear-gradient(135deg, rgba(255, 255, 255, 0.15) 0%, rgba(255, 255, 255, 0.05) 100%); border: 2px solid #FFFFFF; border-radius: 12px; padding: 2rem; margin-top: 1rem; box-shadow: 0 8px 24px rgba(0,0,0,0.3);">
+                <ul style="list-style: none;">
+                    <li style="padding: 0.7rem 0; color: #c0c0c0;"><strong style="color: #FFFFFF; font-size: 1.2rem;">✓</strong> يحق للرتبة استخراج أي مركبة من المركبات المدرجة أعلاه</li>
+                    <li style="padding: 0.7rem 0; color: #c0c0c0;"><strong style="color: #FFFFFF; font-size: 1.2rem;">✓</strong>       </li>
+                    <li style="padding: 0.7rem 0; color: #c0c0c0;"><strong style="color: #FFFFFF; font-size: 1.2rem;">✓</strong>        </li>
+                    <li style="padding: 0.7rem 0; color: #c0c0c0;"><strong style="color: #FFFFFF; font-size: 1.2rem;">✓</strong>        </li>
+                    <li style="padding: 0.7rem 0; color: #c0c0c0;"><strong style="color: #FFFFFF; font-size: 1.2rem;">✓</strong>       </li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- Section 3: Ranks -->
+        <section id="ranks">
+            <h2>⭐ الرتب العسكرية والصلاحيات</h2>
+            <p>شرح مفصل لكل رتبة عسكرية مع صلاحياتها ومسؤولياتها</p>
+
+            <div class="rank-grid">
+                <div class="rank-card">
+                    <h4>🔹 جندي</h4>
+                    <p><strong>الإنجليزية:</strong> Private</p>
+                    <h5 style="color: #FFFFFF; margin-top: 1rem; margin-bottom: 0.7rem; font-size: 0.95rem; letter-spacing: 0.5px;">الصلاحيات:</h5>
+                    <ul>
+                        <li>استخراج المركبات المصرحة للجنود</li>
+                        <li>تنفيذ الأوامر العسكرية</li>
+                        <li>المشاركة في العمليات الميدانية</li>
+                    </ul>
+                </div>
+
+                <div class="rank-card">
+                    <h4>🔸 عريف</h4>
+                    <p><strong>الإنجليزية:</strong> Corporal</p>
+                    <h5 style="color: #FFFFFF; margin-top: 1rem; margin-bottom: 0.7rem; font-size: 0.95rem; letter-spacing: 0.5px;">الصلاحيات:</h5>
+                    <ul>
+                        <li>استخراج المركبات المصرحة للعرفاء</li>
+                        <li>قيادة فريق من الجنود</li>
+                        <li>إشراف على العمليات الصغيرة</li>
+                    </ul>
+                </div>
+
+                <div class="rank-card">
+                    <h4>⭐ وكيل رقيب</h4>
+                    <p><strong>الإنجليزية:</strong> Sergeant</p>
+                    <h5 style="color: #FFFFFF; margin-top: 1rem; margin-bottom: 0.7rem; font-size: 0.95rem; letter-spacing: 0.5px;">الصلاحيات:</h5>
+                    <ul>
+                        <li>استخراج المركبات المصرحة لوكلاء الرقباء</li>
+                        <li>قيادة فريق من العرفاء والجنود</li>
+                        <li>الإشراف على العمليات المتوسطة</li>
+                    </ul>
+                </div>
+
+                <div class="rank-card">
+                    <h4>⭐⭐ رقيب</h4>
+                    <p><strong>الإنجليزية:</strong> Staff Sergeant</p>
+                    <h5 style="color: #FFFFFF; margin-top: 1rem; margin-bottom: 0.7rem; font-size: 0.95rem; letter-spacing: 0.5px;">الصلاحيات:</h5>
+                    <ul>
+                        <li>استخراج المركبات المصرحة للرقباء</li>
+                        <li>قيادة فريق كامل من الأفراد</li>
+                        <li>الإشراف على العمليات الكبيرة</li>
+                    </ul>
+                </div>
+
+                <div class="rank-card">
+                    <h4>⭐⭐⭐ ملازم</h4>
+                    <p><strong>الإنجليزية:</strong> Lieutenant</p>
+                    <h5 style="color: #FFFFFF; margin-top: 1rem; margin-bottom: 0.7rem; font-size: 0.95rem; letter-spacing: 0.5px;">الصلاحيات:</h5>
+                    <ul>
+                        <li>استخراج جميع المركبات المصرحة</li>
+                        <li>قيادة فريق كبير من الأفراد</li>
+                        <li>اتخاذ القرارات العسكرية</li>
+                    </ul>
+                </div>
+
+                <div class="rank-card">
+                    <h4>⭐⭐⭐⭐ نقيب</h4>
+                    <p><strong>الإنجليزية:</strong> Captain</p>
+                    <h5 style="color: #FFFFFF; margin-top: 1rem; margin-bottom: 0.7rem; font-size: 0.95rem; letter-spacing: 0.5px;">الصلاحيات:</h5>
+                    <ul>
+                        <li>استخراج جميع المركبات بدون قيود</li>
+                        <li>قيادة عدة فرق</li>
+                        <li>اتخاذ قرارات استراتيجية</li>
+                    </ul>
+                </div>
+
+                <div class="rank-card">
+                    <h4>⭐⭐⭐⭐⭐ رائد</h4>
+                    <p><strong>الإنجليزية:</strong> Major</p>
+                    <h5 style="color: #FFFFFF; margin-top: 1rem; margin-bottom: 0.7rem; font-size: 0.95rem; letter-spacing: 0.5px;">الصلاحيات:</h5>
+                    <ul>
+                        <li>استخراج جميع المركبات بدون قيود</li>
+                        <li>قيادة عدة كتائب</li>
+                        <li>اتخاذ قرارات عسكرية عليا</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section 4: Laws -->
+        <section id="laws">
+            <h2>⚖️ القوانين والأنظمة العسكرية</h2>
+            <p>جميع القوانين والأنظمة التي يجب على جميع الأفراد العسكريين الالتزام بها</p>
+
+            <div class="law-grid">
+                <div class="law-card critical">
+                    <span class="law-category">الانضباط</span>
+                    <h4>قانون الانضباط العسكري</h4>
+                    <p>جميع الأفراد العسكريين ملزمون بالالتزام الكامل بالنظام والانضباط العسكري.</p>
+                    <ul>
+                        <li>الالتزام بالزي العسكري الرسمي في جميع الأوقات</li>
+                        <li>تنفيذ الأوامر من الرتب الأعلى بدون تأخير</li>
+                        <li>عدم مغادرة الثكنة بدون إذن رسمي</li>
+                        <li>الحفاظ على النظام والنظافة في جميع المرافق</li>
+                    </ul>
+                </div>
+
+                <div class="law-card critical">
+                    <span class="law-category">المركبات</span>
+                    <h4>قانون استخدام المركبات العسكرية</h4>
+                    <p>استخدام المركبات العسكرية يقتصر على الأفراد المصرح لهم فقط وفقاً لرتبتهم.</p>
+                    <ul>
+                        <li>يجب الحصول على ترخيص قيادة ساري المفعول</li>
+                        <li>يجب الالتزام بقوانين المرور والسلامة</li>
+                        <li>يجب الحفاظ على المركبة وإبلاغ عن أي أعطال</li>
+                        <li>يجب إرجاع المركبة في الوقت المحدد</li>
+                    </ul>
+                </div>
+
+                <div class="law-card critical">
+                    <span class="law-category">الأمان</span>
+                    <h4>قانون الأمان والسلامة</h4>
+                    <p>جميع الأفراد ملزمون بالالتزام بمعايير الأمان والسلامة في جميع العمليات.</p>
+                    <ul>
+                        <li>ارتداء معدات الحماية الشخصية في جميع الأوقات</li>
+                        <li>الالتزام بإجراءات السلامة في المرافق</li>
+                        <li>الإبلاغ الفوري عن أي حوادث أو إصابات</li>
+                        <li>عدم التعامل مع المعدات بدون تدريب مناسب</li>
+                    </ul>
+                </div>
+
+                <div class="law-card important">
+                    <span class="law-category">الموارد البشرية</span>
+                    <h4>قانون الإجازات والإجازات المرضية</h4>
+                    <p>للأفراد العسكريين الحق في الإجازات والإجازات المرضية وفقاً للوائح المحددة.</p>
+                    <ul>
+                        <li>الإجازة السنوية: 30 يوم</li>
+                        <li>الإجازة المرضية: حسب التقرير الطبي</li>
+                        <li>يجب تقديم طلب الإجازة قبل أسبوع على الأقل</li>
+                        <li>يجب الموافقة من الرتبة الأعلى</li>
+                    </ul>
+                </div>
+
+                <div class="law-card important">
+                    <span class="law-category">الموارد البشرية</span>
+                    <h4>قانون الراتب والمكافآت</h4>
+                    <p>يتم صرف الراتب والمكافآت وفقاً للرتبة والخدمة والأداء.</p>
+                    <ul>
+                        <li>يتم صرف الراتب في اليوم الأول من كل شهر</li>
+                        <li>المكافآت تُصرف بناءً على الأداء المتميز</li>
+                        <li>الراتب الإضافي للعمل الإضافي</li>
+                        <li>بدل الخطر والعمليات الخاصة</li>
+                    </ul>
+                </div>
+
+                <div class="law-card critical">
+                    <span class="law-category">العقوبات</span>
+                    <h4>قانون المحاسبة والعقوبات</h4>
+                    <p>أي انتهاك للقوانين والأنظمة يعرض الفرد للمحاسبة والعقوبات المناسبة.</p>
+                    <ul>
+                        <li>الإنذار الكتابي للانتهاكات البسيطة</li>
+                        <li>الخصم من الراتب للانتهاكات المتوسطة</li>
+                        <li>الحبس العسكري للانتهاكات الخطيرة</li>
+                        <li>الفصل من الخدمة للانتهاكات الجسيمة</li>
+                    </ul>
+                </div>
+
+                <div class="law-card">
+                    <span class="law-category">التطور الوظيفي</span>
+                    <h4>قانون الترقية والتطور الوظيفي</h4>
+                    <p>الترقية تتم بناءً على الأقدمية والأداء والكفاءة.</p>
+                    <ul>
+                        <li>الحد الأدنى للخدمة قبل الترقية: سنتان</li>
+                        <li>التقييم السنوي للأداء</li>
+                        <li>الاختبارات والمقابلات للترقية</li>
+                        <li>التدريب المستمر والتطوير المهني</li>
+                    </ul>
+                </div>
+
+                <div class="law-card critical">
+                    <span class="law-category">الأمن</span>
+                    <h4>قانون السرية والأمن المعلومات</h4>
+                    <p>جميع المعلومات العسكرية سرية ولا يجوز الإفصاح عنها لأي جهة خارجية.</p>
+                    <ul>
+                        <li>عدم الحديث عن العمليات العسكرية</li>
+                        <li>عدم نشر صور أو معلومات عن المرافق</li>
+                        <li>حماية المعلومات الشخصية للأفراد</li>
+                        <li>عدم استخدام وسائل التواصل الاجتماعي لنشر معلومات عسكرية</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div style="background: linear-gradient(135deg, rgba(255, 255, 255, 0.15) 0%, rgba(255, 255, 255, 0.05) 100%); border: 3px solid #FFFFFF; border-radius: 12px; padding: 2.5rem; margin-top: 2.5rem; box-shadow: 0 8px 24px rgba(255, 255, 255, 0.2);">
+                <h3 style="color: #FFFFFF; margin-bottom: 1.5rem; font-size: 1.4rem; letter-spacing: 1px;">⚠️ ملاحظة مهمة جداً:</h3>
+                <p style="color: #c0c0c0; font-size: 1.05rem; line-height: 1.8;">جميع القوانين والأنظمة المذكورة أعلاه <strong style="color: #FFFFFF;">إلزامية</strong> لجميع الأفراد العسكريين. عدم الالتزام بها قد يؤدي إلى عقوبات تتراوح من الإنذار إلى الفصل من الخدمة. يجب على جميع الأفراد قراءة وفهم هذه القوانين والالتزام بها بشكل كامل.</p>
+            </div>
+        </section>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <p>© 2025 بوابة المعلومات العسكرية - جميع الحقوق محفوظة</p>
+        <p>هذا الموقع يحتوي على معلومات رسمية للاستخدام الداخلي</p>
+        <p>آخر تحديث: نوفمبر 2025</p>
+    </footer>
+</body>
+</html>
